@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from './routes';
 import HomeScreen from './screens/HomeScreen';
+import PlacesScreen from './screens/PlacesScreen';
+import { Text } from '@react-navigation/elements';
 
 function App() {
     const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -17,15 +19,35 @@ function App() {
                     <Stack.Screen
                         name='Home'
                         component={HomeScreen}
-                        options={{ 
-                            title: 'Google Places',
+                        options={({ navigation }) => (
+                            { 
+                                title: 'Maps',
+                                headerTitleAlign: 'center',
+                                headerRight: () => (
+                                    <Text style={styles.btnRight} onPress={() => navigation.navigate("Places")}>Places</Text>
+                                )
+                            }
+                        )}
+                    />
+
+                    <Stack.Screen
+                        name='Places'
+                        component={PlacesScreen}
+                        options={{
+                            title: 'Places',
                             headerTitleAlign: 'center',
-                         }}
+                        }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>
     );
 }
+
+const styles = StyleSheet.create({
+    btnRight: {
+        fontSize: 13,
+    },
+});
 
 export default App;
