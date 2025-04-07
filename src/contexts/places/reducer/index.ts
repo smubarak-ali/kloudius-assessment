@@ -8,14 +8,16 @@ export type PlacesState = {
 function placesReducer(state: PlacesState, action: PlacesActionsType) {
     switch (action.type) {
         case PlacesActions.ADD_PLACE:
-            // Return a new state with the characters array updated
             return {
                 ...state,
-                characters: action.payload,
+                places: action.payload,
             };
 
-        case PlacesActions.SELECT_PLACE: {
-        }
+        case PlacesActions.SELECT_PLACE:
+            return {
+                ...state,
+                selectedPlace: action.payload ? action.payload : undefined,
+            }
 
         default:
             return state;
