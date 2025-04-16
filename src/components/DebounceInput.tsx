@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useEffect, useState } from 'react';
-import { Text, TextInput, TextInputChangeEventData, TextInputProps } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 
 interface Props extends TextInputProps {
     onValueChange?: (value: string) => void;
@@ -14,7 +14,7 @@ const DebounceInput: FC<Props & PropsWithChildren> = props => {
     };
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => setDebouncedInputValue(inputValue), 500);
+        const timeoutId = setTimeout(() => setDebouncedInputValue(inputValue), 800);
 
         return () => clearTimeout(timeoutId);
     }, [inputValue]);
