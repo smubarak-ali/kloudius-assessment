@@ -8,6 +8,12 @@ export type PlacesState = {
 
 function placesReducer(state: PlacesState, action: PlacesActionsType) {
     switch (action.type) {
+        case PlacesActions.LOAD_STATE:
+            return {
+                ...action.payload
+            }
+
+
         case PlacesActions.ADD_PLACE:
             if (state.places.some(val => val.place_id === action.payload.place_id)) {
                 return {
@@ -15,7 +21,7 @@ function placesReducer(state: PlacesState, action: PlacesActionsType) {
                     selectedPlace: action.payload
                 }
             }
-            
+
             return {
                 ...state,
                 places: [...state.places, action.payload],

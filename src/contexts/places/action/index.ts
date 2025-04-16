@@ -1,9 +1,16 @@
 import { GooglePlaces } from "../../../utils/model/GooglePlaces";
+import { PlacesState } from "../reducer";
 
 export enum PlacesActions {
+    LOAD_STATE = 'LOAD_STATE',
     ADD_PLACE = 'ADD_PLACE',
     SELECT_PLACE = 'SELECT_PLACE'
 }
+
+export type LoadStateAction = { 
+    type: PlacesActions.LOAD_STATE, 
+    payload: PlacesState
+};
 
 export type AddPlaceAction = {
     type: PlacesActions.ADD_PLACE;
@@ -15,4 +22,4 @@ export type SetSelectedPlaceAction = {
     payload?: GooglePlaces;
 };
 
-export type PlacesActionsType = AddPlaceAction | SetSelectedPlaceAction;
+export type PlacesActionsType = LoadStateAction | AddPlaceAction | SetSelectedPlaceAction;

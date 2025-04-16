@@ -25,6 +25,7 @@ const Dropdown: FC<Props> = ({ data, onPlaceSelect }) => {
             data={data}
             keyExtractor={item => item.place_id}
             renderItem={renderItem}
+            keyboardShouldPersistTaps="handled"
         />
     );
 };
