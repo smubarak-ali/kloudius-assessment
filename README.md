@@ -27,3 +27,7 @@ yarn android:prod:apk
 ```
 
 > **Note:** The keys for google account with places are already copied in the AndroidManifest.xml and AppConfig.ts files, so you just need to run the project without providing anything.
+
+
+## The screen recording
+![Screen Capture](./screen_recording.gif)
